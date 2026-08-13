@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Think Before You Prompt</title>
+<style>
+:root{--ink:#172238;--muted:#647084;--bg:#f6f7fb;--card:#fff;--line:#e4e7ee;--accent:#6257d9;--soft:#efedff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{font-weight:900}.links{display:flex;gap:15px;flex-wrap:wrap}.links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:700}
+.hero{padding:80px 20px 70px;background:linear-gradient(135deg,#eae8ff,#fbfaff 60%,#edf4ff)}.wrap{max-width:1100px;margin:auto}.badge,.tag{font-weight:900;color:var(--accent);font-size:.76rem;text-transform:uppercase;letter-spacing:.7px}.badge{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 13px}.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);line-height:.96;letter-spacing:-3px;margin:18px 0}.hero p{max-width:760px;color:var(--muted);font-size:1.12rem}.btn{display:inline-block;margin:7px 8px 0 0;padding:12px 18px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800}.btn.alt{background:#fff;color:var(--accent);border:1px solid var(--line)}
+section{padding:62px 20px}.title{font-size:2rem;margin:0 0 8px}.lead{max-width:800px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:28px}.card,.activity{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 9px 26px #1722380d}.icon{font-size:2rem}.card h3{margin:6px 0}.callout{margin-top:22px;padding:17px 19px;background:var(--soft);border-left:5px solid var(--accent);border-radius:10px}
+.framework{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:27px}.letter{font-size:2.3rem;font-weight:900;color:var(--accent)}
+.activity{margin-top:18px}.choice{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fafbfe;margin:8px 0;cursor:pointer}.choice:hover{background:#f0efff}button{border:0;border-radius:10px;background:var(--accent);color:white;padding:10px 15px;font-weight:800;cursor:pointer}.result{font-weight:800;margin-top:9px}.check label{display:block;margin:11px 0}.check input{margin-right:9px}.bar{height:12px;background:#e7e9ef;border-radius:99px;overflow:hidden;margin-top:18px}.fill{height:100%;width:0;background:var(--accent);transition:.3s}
+footer{background:var(--ink);color:#e8ebf2;padding:35px 20px}.small{color:#b9c1d0;font-size:.9rem}@media(max-width:760px){.links{display:none}.nav{justify-content:center}.hero h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<nav><div class="nav"><div class="brand">THINK BEFORE YOU PROMPT</div><div class="links"><a href="#home">Home</a><a href="#ai">AI Use</a><a href="#think">THINK</a><a href="#skills">Skills</a><a href="#materials">Materials</a><a href="#activities">Activities</a></div></div></nav>
+
+<header class="hero" id="home"><div class="wrap">
+<span class="badge">Digital Learning Materials</span>
+<h1>Think Before<br>You Prompt.</h1>
+<p><strong>A Digital Learning Hub for Responsible Artificial Intelligence Use and Critical Thinking Among Psychology Students</strong></p>
+<p>Learn how to question, verify, evaluate, and responsibly use AI-generated information in academic learning.</p>
+<a class="btn" href="#ai">Start Learning</a><a class="btn alt" href="#activities">Try an Activity</a>
+</div></header>
+
+<section id="ai"><div class="wrap"><h2 class="title">Responsible AI Use</h2><p class="lead">AI can support learning, but students remain responsible for understanding, checking, and using the information they receive.</p>
+<div class="grid">
+<div class="card"><div class="icon">💡</div><div class="tag">Learn</div><h3>Use AI as Support</h3><p>Use AI to brainstorm, clarify concepts, create practice questions, or explore ideas—not simply replace your own work.</p></div>
+<div class="card"><div class="icon">🔎</div><div class="tag">Check</div><h3>Verify Information</h3><p>AI can produce incorrect or incomplete information. Check important claims against credible academic sources.</p></div>
+<div class="card"><div class="icon">🧠</div><div class="tag">Think</div><h3>Keep Your Judgment</h3><p>Consider evidence, reasoning, limitations, and context before accepting an AI-generated answer.</p></div>
+<div class="card"><div class="icon">⚖️</div><div class="tag">Act</div><h3>Use AI Responsibly</h3><p>Follow instructor policies, protect personal information, and maintain academic integrity.</p></div>
+</div><div class="callout"><strong>Key idea:</strong> AI can provide information, but you are responsible for deciding whether it is accurate, relevant, and appropriate to use.</div>
+</div></section>
+
+<section id="think"><div class="wrap"><h2 class="title">The THINK Framework</h2><p class="lead">A five-step reminder for evaluating AI-generated information.</p>
+<div class="framework">
+<div class="card"><div class="letter">T</div><h3>Test the Claim</h3><p>What exactly is being claimed?</p></div>
+<div class="card"><div class="letter">H</div><h3>Hunt for Evidence</h3><p>What evidence supports it? Can I verify it?</p></div>
+<div class="card"><div class="letter">I</div><h3>Inspect the Reasoning</h3><p>Does the reasoning support the conclusion?</p></div>
+<div class="card"><div class="letter">N</div><h3>Notice Limitations</h3><p>What could be missing, biased, uncertain, or oversimplified?</p></div>
+<div class="card"><div class="letter">K</div><h3>Know Before You Use</h3><p>Do I understand it well enough to use it responsibly?</p></div>
+</div></div></section>
+
+<section id="skills"><div class="wrap"><h2 class="title">Critical Thinking Learning Materials</h2><p class="lead">Four learning areas corresponding to the critical-thinking skills measured in the study.</p>
+<div class="grid">
+<div class="card"><div class="icon">🔎</div><div class="tag">01 • Analysis</div><h3>Break Information Apart</h3><p>Identify claims, assumptions, relevant details, and relationships.</p><p><strong>Ask:</strong> What are the parts of this argument?</p></div>
+<div class="card"><div class="icon">⚖️</div><div class="tag">02 • Evaluation</div><h3>Judge the Evidence</h3><p>Examine credibility, relevance, evidence, and reasoning.</p><p><strong>Ask:</strong> How strong is the evidence?</p></div>
+<div class="card"><div class="icon">💭</div><div class="tag">03 • Inference</div><h3>Draw Careful Conclusions</h3><p>Form reasonable conclusions while recognizing uncertainty and limits.</p><p><strong>Ask:</strong> What does the evidence really allow me to conclude?</p></div>
+<div class="card"><div class="icon">🧩</div><div class="tag">04 • Problem-Solving</div><h3>Choose a Justified Response</h3><p>Define the problem, compare alternatives, and select a reasoned response.</p><p><strong>Ask:</strong> Which option is best supported and why?</p></div>
+</div></div></section>
+
+<section id="materials"><div class="wrap"><h2 class="title">Digital Learning Materials</h2><p class="lead">Quick materials students can use before, during, or after using AI.</p>
+<div class="grid">
+<div class="card"><div class="tag">Material 01</div><h3>AI Verification Guide</h3><ul><li>Identify the important claim.</li><li>Find a credible source.</li><li>Compare it with the AI response.</li><li>Check whether evidence supports the claim.</li></ul></div>
+<div class="card"><div class="tag">Material 02</div><h3>Prompt With Purpose</h3><ul><li>Know what you want to learn.</li><li>Ask clear questions.</li><li>Request explanations, not only answers.</li><li>Challenge the response with follow-up questions.</li></ul></div>
+<div class="card"><div class="tag">Material 03</div><h3>AI Red Flags</h3><ul><li>Unverifiable citations</li><li>Overconfident statements</li><li>Missing context</li><li>Claims without evidence</li></ul></div>
+<div class="card"><div class="tag">Material 04</div><h3>Academic Responsibility</h3><ul><li>Follow course and school policies.</li><li>Do not misrepresent AI-generated work where prohibited.</li><li>Protect private information.</li><li>Understand what you submit.</li></ul></div>
+</div></div></section>
+
+<section id="activities"><div class="wrap"><h2 class="title">Interactive Learning Activities</h2><p class="lead">Practice applying analysis, evaluation, inference, and problem-solving to AI-related situations.</p>
+
+<div class="activity"><div class="tag">Analysis</div><h3>Break Down the Claim</h3><p>An AI response says: <strong>“Students who frequently use AI always become less capable of independent thinking.”</strong></p><p><strong>What should you do first?</strong></p>
+<label class="choice"><input type="radio" name="a" value="0"> Accept the statement because it sounds convincing.</label><label class="choice"><input type="radio" name="a" value="1"> Identify the exact claim, assumptions, and evidence needed to support it.</label><label class="choice"><input type="radio" name="a" value="0"> Copy the statement into your assignment.</label><button onclick="check('a','1','ar')">Check Answer</button><div id="ar" class="result"></div></div>
+
+<div class="activity"><div class="tag">Evaluation</div><h3>Check the Source</h3><p>An AI answer gives you three academic-looking references. What is the strongest next step?</p>
+<label class="choice"><input type="radio" name="e" value="0"> Trust them because they look academic.</label><label class="choice"><input type="radio" name="e" value="1"> Find the original sources and check whether they actually support the claims.</label><label class="choice"><input type="radio" name="e" value="0"> Use them without reading them.</label><button onclick="check('e','1','er')">Check Answer</button><div id="er" class="result"></div></div>
+
+<div class="activity"><div class="tag">Inference</div><h3>Evidence or Assumption?</h3><p>A student observes that classmates use AI and concludes that AI caused differences in classroom performance. What should the student recognize?</p>
+<label class="choice"><input type="radio" name="i" value="1"> The observation alone does not establish causation.</label><label class="choice"><input type="radio" name="i" value="0"> The conclusion is automatically true.</label><label class="choice"><input type="radio" name="i" value="0"> No additional evidence is needed.</label><button onclick="check('i','1','ir')">Check Answer</button><div id="ir" class="result"></div></div>
+
+<div class="activity"><div class="tag">Problem-Solving</div><h3>Choose a Responsible Response</h3><p>You want AI to help you understand a Psychology assignment while keeping your final work your own.</p>
+<label class="choice"><input type="radio" name="p" value="0"> Ask AI to write everything and submit it.</label><label class="choice"><input type="radio" name="p" value="1"> Use AI for appropriate support, verify information, follow course rules, and produce your own final work.</label><label class="choice"><input type="radio" name="p" value="0"> Copy the AI response and change a few words.</label><button onclick="check('p','1','pr')">Check Answer</button><div id="pr" class="result"></div></div>
+</div></section>
+
+<section><div class="wrap"><h2 class="title">Responsible AI Checklist</h2><p class="lead">A quick self-check before using AI-generated information for academic work.</p>
+<div class="card check">
+<label><input type="checkbox"> I know why I am using AI for this task.</label>
+<label><input type="checkbox"> I checked important information using credible sources.</label>
+<label><input type="checkbox"> I considered the reasoning and possible limitations.</label>
+<label><input type="checkbox"> I can explain the information in my own words.</label>
+<label><input type="checkbox"> I followed my instructor's AI-use and academic-integrity rules.</label>
+<label><input type="checkbox"> I used AI as support rather than a replacement for my thinking.</label>
+<div class="bar"><div class="fill" id="fill"></div></div><p id="pct"><strong>0% complete</strong></p>
+</div></div></section>
+
+<footer><div class="wrap"><strong>THINK BEFORE YOU PROMPT</strong><p class="small">Proposed digital learning-material output for SOP 5. Final content should be refined according to the actual findings of the study.</p></div></footer>
+
+<script>
+function check(n,a,id){let x=document.querySelector('input[name="'+n+'"]:checked'),o=document.getElementById(id);if(!x){o.textContent="Please select an answer.";return}o.textContent=x.value===a?"✓ Correct. This applies the intended critical-thinking strategy.":"Not quite. Review the material and try the THINK framework again."}
+let boxes=document.querySelectorAll('.check input');boxes.forEach(b=>b.addEventListener('change',()=>{let n=[...boxes].filter(x=>x.checked).length,p=Math.round(n/boxes.length*100);document.getElementById('fill').style.width=p+'%';document.getElementById('pct').innerHTML='<strong>'+p+'% complete</strong>'}));
+</script>
+</body>
+</html>
