@@ -36,7 +36,9 @@ h1{font-size:clamp(42px,6vw,68px);line-height:1.02;margin:12px 0 18px;color:var(
 .hero h2{font-size:24px;color:var(--blue);margin:0 0 18px}
 .hero p{font-size:17px;color:#4f5e76;max-width:610px}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.hero-art{min-height:420px;border-radius:32px;background:radial-gradient(circle at 65% 30%,#cde5ff,transparent 35%),linear-gradient(145deg,#dceeff,#f8fbff);position:relative;display:flex;align-items:center;justify-content:center}
+.hero-art{min-height:420px;border-radius:32px;background:radial-gradient(circle at 65% 30%,#cde5ff,transparent 35%),linear-gradient(145deg,#dceeff,#f8fbff);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.image-hero{padding:0;background:#fff;border:1px solid var(--line);box-shadow:0 20px 45px rgba(13,27,61,.10)}
+.image-hero img{width:100%;height:auto;display:block;object-fit:cover;border-radius:32px}
 .person{width:230px;height:230px;border-radius:50%;background:#f7c7a8;position:relative;box-shadow:0 25px 50px rgba(13,27,61,.12)}
 .person:before{content:"";position:absolute;width:240px;height:120px;left:-5px;top:-5px;background:#1e2432;border-radius:140px 140px 50px 50px}
 .person:after{content:"";position:absolute;width:95px;height:55px;left:72px;top:125px;border-radius:0 0 70px 70px;border-bottom:4px solid #8b4f48}
@@ -86,7 +88,7 @@ footer li{margin:8px 0}
  nav{display:none}.menu{display:block}.cards{grid-template-columns:1fr 1fr}.hero-grid,.split{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}
 }
 @media(max-width:580px){
- .hero{padding:55px 0}.cards,.info-grid,.steps{grid-template-columns:1fr}.hero-art{min-height:300px}.laptop{width:240px;height:125px}.person{width:180px;height:180px}.person:before{width:190px}.person:after{left:58px;top:100px}.bubble{right:12px;top:18px;font-size:12px}.nav{height:66px}
+ .hero{padding:55px 0}.cards,.info-grid,.steps{grid-template-columns:1fr}.hero-art{min-height:0}.image-hero img{width:100%;height:auto}.laptop{width:240px;height:125px}.person{width:180px;height:180px}.person:before{width:190px}.person:after{left:58px;top:100px}.bubble{right:12px;top:18px;font-size:12px}.nav{height:66px}
 }
 </style>
 </head>
@@ -113,9 +115,9 @@ footer li{margin:8px 0}
       <p>Learn how to use Artificial Intelligence to support learning, improve your academic work, and explore ideas—while keeping your own judgment, ethics, and critical thinking at the center.</p>
       <div class="actions"><a class="btn btn-primary" href="#guide">Explore the Guide →</a><button class="btn btn-outline" onclick="openModal('about')">What is this? ⓘ</button></div>
     </div>
-    <div class="hero-art" aria-label="Illustration of a psychology student using a laptop">
-      <div class="bubble">AI can help you.<br><span style="color:#1769d5">You still think.</span></div>
-      <div class="person"></div><div class="laptop"></div>
+    <div class="hero-art image-hero" aria-label="Think Before You Prompt educational banner">
+      <img src="think-before-you-prompt.jpg"
+           alt="Think Before You Prompt: A guide to using AI effectively and responsibly for Psychology students">
     </div>
   </div>
 </section>
