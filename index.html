@@ -1,96 +1,267 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Think Before You Prompt</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Think Before You Prompt — a digital learning guide for Psychology students using AI effectively, critically, and responsibly.">
+<title>Think Before You Prompt | AI Guide for Psychology Students</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#172238;--muted:#647084;--bg:#f6f7fb;--card:#fff;--line:#e4e7ee;--accent:#6257d9;--soft:#efedff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
-nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{font-weight:900}.links{display:flex;gap:15px;flex-wrap:wrap}.links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:700}
-.hero{padding:80px 20px 70px;background:linear-gradient(135deg,#eae8ff,#fbfaff 60%,#edf4ff)}.wrap{max-width:1100px;margin:auto}.badge,.tag{font-weight:900;color:var(--accent);font-size:.76rem;text-transform:uppercase;letter-spacing:.7px}.badge{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 13px}.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);line-height:.96;letter-spacing:-3px;margin:18px 0}.hero p{max-width:760px;color:var(--muted);font-size:1.12rem}.btn{display:inline-block;margin:7px 8px 0 0;padding:12px 18px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800}.btn.alt{background:#fff;color:var(--accent);border:1px solid var(--line)}
-section{padding:62px 20px}.title{font-size:2rem;margin:0 0 8px}.lead{max-width:800px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:28px}.card,.activity{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 9px 26px #1722380d}.icon{font-size:2rem}.card h3{margin:6px 0}.callout{margin-top:22px;padding:17px 19px;background:var(--soft);border-left:5px solid var(--accent);border-radius:10px}
-.framework{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:27px}.letter{font-size:2.3rem;font-weight:900;color:var(--accent)}
-.activity{margin-top:18px}.choice{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fafbfe;margin:8px 0;cursor:pointer}.choice:hover{background:#f0efff}button{border:0;border-radius:10px;background:var(--accent);color:white;padding:10px 15px;font-weight:800;cursor:pointer}.result{font-weight:800;margin-top:9px}.check label{display:block;margin:11px 0}.check input{margin-right:9px}.bar{height:12px;background:#e7e9ef;border-radius:99px;overflow:hidden;margin-top:18px}.fill{height:100%;width:0;background:var(--accent);transition:.3s}
-footer{background:var(--ink);color:#e8ebf2;padding:35px 20px}.small{color:#b9c1d0;font-size:.9rem}@media(max-width:760px){.links{display:none}.nav{justify-content:center}.hero h1{letter-spacing:-2px}}
+:root{
+  --navy:#0d1b3d; --blue:#1769d5; --sky:#eaf4ff; --text:#18243d;
+  --muted:#5f6d84; --white:#fff; --line:#dbe6f4; --green:#1f8a5b;
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:800;line-height:1.05;color:var(--navy);font-size:18px}
+.logo span{color:var(--blue)}
+.logo small{display:block;font-size:9px;letter-spacing:1.6px;color:#6b7890;margin-top:4px}
+nav{display:flex;gap:20px;align-items:center;font-size:14px;font-weight:600}
+nav a{padding:8px 4px;color:#28334a}
+nav a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:10px;font-weight:700;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(23,105,213,.2)}
+.btn-outline{border-color:#9bbce8;color:var(--blue);background:#fff}
+.menu{display:none;border:0;background:none;font-size:26px}
+.hero{background:linear-gradient(135deg,#f2f8ff,#fff);padding:82px 0 70px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.eyebrow{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase}
+h1{font-size:clamp(42px,6vw,68px);line-height:1.02;margin:12px 0 18px;color:var(--navy)}
+.hero h2{font-size:24px;color:var(--blue);margin:0 0 18px}
+.hero p{font-size:17px;color:#4f5e76;max-width:610px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-art{min-height:420px;border-radius:32px;background:radial-gradient(circle at 65% 30%,#cde5ff,transparent 35%),linear-gradient(145deg,#dceeff,#f8fbff);position:relative;display:flex;align-items:center;justify-content:center}
+.person{width:230px;height:230px;border-radius:50%;background:#f7c7a8;position:relative;box-shadow:0 25px 50px rgba(13,27,61,.12)}
+.person:before{content:"";position:absolute;width:240px;height:120px;left:-5px;top:-5px;background:#1e2432;border-radius:140px 140px 50px 50px}
+.person:after{content:"";position:absolute;width:95px;height:55px;left:72px;top:125px;border-radius:0 0 70px 70px;border-bottom:4px solid #8b4f48}
+.laptop{position:absolute;bottom:50px;width:300px;height:155px;background:#64748b;border:10px solid #475569;border-radius:12px;transform:perspective(500px) rotateX(10deg);box-shadow:0 20px 35px rgba(13,27,61,.18)}
+.laptop:after{content:"THINK";position:absolute;inset:25px;color:#fff;font-weight:800;font-size:30px;display:grid;place-items:center}
+.bubble{position:absolute;top:45px;right:30px;background:#fff;border:1px solid #c6dcf5;padding:16px 20px;border-radius:18px;box-shadow:0 12px 30px rgba(13,27,61,.08);font-weight:700;color:var(--navy)}
+section{padding:78px 0}
+.section-title{text-align:center;max-width:750px;margin:0 auto 38px}
+.section-title h2{font-size:34px;color:var(--navy);margin:0 0 10px}
+.section-title p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(13,27,61,.08)}
+.icon{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;background:#eaf4ff;font-size:25px;margin-bottom:18px}
+.card h3{margin:0 0 9px;color:var(--navy);font-size:19px}
+.card p{color:var(--muted);font-size:14px}
+.learn{color:var(--blue);font-weight:700;font-size:14px}
+.guide{background:#f5f9ff}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 14px;text-align:center}
+.step-num{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;margin:0 auto 12px;font-weight:800}
+.step h3{font-size:15px;margin:0 0 7px}
+.step p{font-size:12px;color:var(--muted);margin:0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
+.panel{border:1px solid var(--line);border-radius:20px;padding:30px;background:#fff}
+.panel h3{margin-top:0;color:var(--navy);font-size:22px}
+.checklist{list-style:none;padding:0;margin:0}
+.checklist li{padding:11px 0;border-bottom:1px solid #edf1f7;display:flex;gap:11px;align-items:flex-start}
+.check{width:22px;height:22px;border-radius:50%;background:#e5f6ee;color:var(--green);display:grid;place-items:center;font-weight:800;flex:none}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.info-box{padding:24px;border-radius:16px;border:1px solid var(--line)}
+.info-box h3{margin-top:0;color:var(--navy)}
+.info-box ul{padding-left:20px;color:var(--muted)}
+.notice{background:#fff7df;border-left:5px solid #e3a900;padding:18px 20px;border-radius:10px;margin-top:22px}
+footer{background:var(--navy);color:#fff;padding:48px 0 22px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:35px}
+footer h3{margin-top:0}
+footer p,footer li{color:#cbd6e8;font-size:14px}
+footer ul{list-style:none;padding:0}
+footer li{margin:8px 0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-top:18px;text-align:center;color:#aebbd0;font-size:12px}
+.modal{position:fixed;inset:0;background:rgba(6,16,38,.65);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+.modal.open{display:flex}
+.modal-box{max-width:620px;width:100%;background:#fff;border-radius:22px;padding:30px;max-height:85vh;overflow:auto}
+.close{float:right;border:0;background:#eef4fb;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer}
+@media(max-width:900px){
+ nav{display:none}.menu{display:block}.cards{grid-template-columns:1fr 1fr}.hero-grid,.split{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+ .hero{padding:55px 0}.cards,.info-grid,.steps{grid-template-columns:1fr}.hero-art{min-height:300px}.laptop{width:240px;height:125px}.person{width:180px;height:180px}.person:before{width:190px}.person:after{left:58px;top:100px}.bubble{right:12px;top:18px;font-size:12px}.nav{height:66px}
+}
 </style>
 </head>
 <body>
-<nav><div class="nav"><div class="brand">THINK BEFORE YOU PROMPT</div><div class="links"><a href="#home">Home</a><a href="#ai">AI Use</a><a href="#think">THINK</a><a href="#skills">Skills</a><a href="#materials">Materials</a><a href="#activities">Activities</a></div></div></nav>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">THINK<br>BEFORE YOU <span>PROMPT</span><small>AI • LEARNING • CRITICAL THINKING</small></a>
+    <nav>
+      <a href="#basics">AI Basics</a><a href="#effective">Effective Use</a><a href="#responsible">Responsible Use</a>
+      <a href="#critical">Critical Thinking</a><a href="#resources">Resources</a>
+    </nav>
+    <a class="btn btn-primary" href="#checklist">✓ Quick Checklist</a>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
 
-<header class="hero" id="home"><div class="wrap">
-<span class="badge">Digital Learning Materials</span>
-<h1>Think Before<br>You Prompt.</h1>
-<p><strong>A Digital Learning Hub for Responsible Artificial Intelligence Use and Critical Thinking Among Psychology Students</strong></p>
-<p>Learn how to question, verify, evaluate, and responsibly use AI-generated information in academic learning.</p>
-<a class="btn" href="#ai">Start Learning</a><a class="btn alt" href="#activities">Try an Activity</a>
-</div></header>
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Digital Learning Guide for Psychology Students</div>
+      <h1>Think Before You Prompt</h1>
+      <h2>A Guide to Using AI Effectively and Responsibly</h2>
+      <p>Learn how to use Artificial Intelligence to support learning, improve your academic work, and explore ideas—while keeping your own judgment, ethics, and critical thinking at the center.</p>
+      <div class="actions"><a class="btn btn-primary" href="#guide">Explore the Guide →</a><button class="btn btn-outline" onclick="openModal('about')">What is this? ⓘ</button></div>
+    </div>
+    <div class="hero-art" aria-label="Illustration of a psychology student using a laptop">
+      <div class="bubble">AI can help you.<br><span style="color:#1769d5">You still think.</span></div>
+      <div class="person"></div><div class="laptop"></div>
+    </div>
+  </div>
+</section>
 
-<section id="ai"><div class="wrap"><h2 class="title">Responsible AI Use</h2><p class="lead">AI can support learning, but students remain responsible for understanding, checking, and using the information they receive.</p>
-<div class="grid">
-<div class="card"><div class="icon">💡</div><div class="tag">Learn</div><h3>Use AI as Support</h3><p>Use AI to brainstorm, clarify concepts, create practice questions, or explore ideas—not simply replace your own work.</p></div>
-<div class="card"><div class="icon">🔎</div><div class="tag">Check</div><h3>Verify Information</h3><p>AI can produce incorrect or incomplete information. Check important claims against credible academic sources.</p></div>
-<div class="card"><div class="icon">🧠</div><div class="tag">Think</div><h3>Keep Your Judgment</h3><p>Consider evidence, reasoning, limitations, and context before accepting an AI-generated answer.</p></div>
-<div class="card"><div class="icon">⚖️</div><div class="tag">Act</div><h3>Use AI Responsibly</h3><p>Follow instructor policies, protect personal information, and maintain academic integrity.</p></div>
-</div><div class="callout"><strong>Key idea:</strong> AI can provide information, but you are responsible for deciding whether it is accurate, relevant, and appropriate to use.</div>
-</div></section>
+<section id="guide">
+<div class="container">
+  <div class="section-title"><h2>Explore the Guide</h2><p>Choose a topic to learn practical ways to use AI without giving up your own thinking.</p></div>
+  <div class="cards">
+    <article class="card" id="basics"><div class="icon">🤖</div><h3>1. Understanding AI in Psychology</h3><p>Learn what AI is, how students commonly use it, and where it can support academic learning.</p><a class="learn" href="#basics-content">Learn more →</a></article>
+    <article class="card" id="effective"><div class="icon">💬</div><h3>2. Effective Use of AI</h3><p>Use AI for brainstorming, explanations, reviewing, organizing ideas, and improving your learning process.</p><a class="learn" href="#effective-content">Learn more →</a></article>
+    <article class="card" id="responsible"><div class="icon">🛡️</div><h3>3. Responsible Use of AI</h3><p>Practice accuracy checking, privacy protection, academic honesty, transparency, and ethical use.</p><a class="learn" href="#responsible-content">Learn more →</a></article>
+    <article class="card"><div class="icon">🧠</div><h3>4. Think Before You Prompt</h3><p>A simple five-step habit: Question, Check, Think, Evaluate, and Decide.</p><a class="learn" href="#five-step">Learn more →</a></article>
+    <article class="card" id="critical"><div class="icon">🔎</div><h3>5. AI and Critical Thinking</h3><p>Use AI as a tool—not a substitute. Analyze, question, verify, compare, and make your own judgment.</p><a class="learn" href="#critical-content">Learn more →</a></article>
+    <article class="card" id="checklist"><div class="icon">☑️</div><h3>6. Quick AI-Use Checklist</h3><p>A quick set of questions to ask yourself before accepting or submitting AI-assisted work.</p><a class="learn" href="#checklist-content">Learn more →</a></article>
+  </div>
+</div>
+</section>
 
-<section id="think"><div class="wrap"><h2 class="title">The THINK Framework</h2><p class="lead">A five-step reminder for evaluating AI-generated information.</p>
-<div class="framework">
-<div class="card"><div class="letter">T</div><h3>Test the Claim</h3><p>What exactly is being claimed?</p></div>
-<div class="card"><div class="letter">H</div><h3>Hunt for Evidence</h3><p>What evidence supports it? Can I verify it?</p></div>
-<div class="card"><div class="letter">I</div><h3>Inspect the Reasoning</h3><p>Does the reasoning support the conclusion?</p></div>
-<div class="card"><div class="letter">N</div><h3>Notice Limitations</h3><p>What could be missing, biased, uncertain, or oversimplified?</p></div>
-<div class="card"><div class="letter">K</div><h3>Know Before You Use</h3><p>Do I understand it well enough to use it responsibly?</p></div>
-</div></div></section>
+<section class="guide" id="five-step">
+<div class="container">
+  <div class="section-title"><h2>Think Before You Prompt: 5-Step Guide</h2><p>Pause before you accept an AI response. Your judgment stays in the process.</p></div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3>Question</h3><p>What do I need help with?</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Check</h3><p>Is the AI information accurate?</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Think</h3><p>Do I understand the answer?</p></div>
+    <div class="step"><div class="step-num">4</div><h3>Evaluate</h3><p>Can reliable sources support it?</p></div>
+    <div class="step"><div class="step-num">5</div><h3>Decide</h3><p>How should I use the AI output?</p></div>
+  </div>
+</div>
+</section>
 
-<section id="skills"><div class="wrap"><h2 class="title">Critical Thinking Learning Materials</h2><p class="lead">Four learning areas corresponding to the critical-thinking skills measured in the study.</p>
-<div class="grid">
-<div class="card"><div class="icon">🔎</div><div class="tag">01 • Analysis</div><h3>Break Information Apart</h3><p>Identify claims, assumptions, relevant details, and relationships.</p><p><strong>Ask:</strong> What are the parts of this argument?</p></div>
-<div class="card"><div class="icon">⚖️</div><div class="tag">02 • Evaluation</div><h3>Judge the Evidence</h3><p>Examine credibility, relevance, evidence, and reasoning.</p><p><strong>Ask:</strong> How strong is the evidence?</p></div>
-<div class="card"><div class="icon">💭</div><div class="tag">03 • Inference</div><h3>Draw Careful Conclusions</h3><p>Form reasonable conclusions while recognizing uncertainty and limits.</p><p><strong>Ask:</strong> What does the evidence really allow me to conclude?</p></div>
-<div class="card"><div class="icon">🧩</div><div class="tag">04 • Problem-Solving</div><h3>Choose a Justified Response</h3><p>Define the problem, compare alternatives, and select a reasoned response.</p><p><strong>Ask:</strong> Which option is best supported and why?</p></div>
-</div></div></section>
+<section id="checklist-content">
+<div class="container split">
+  <div class="panel">
+    <h3>Before Using AI, Ask Yourself:</h3>
+    <ul class="checklist">
+      <li><span class="check">✓</span>Did I understand the information?</li>
+      <li><span class="check">✓</span>Did I verify the information?</li>
+      <li><span class="check">✓</span>Did I use reliable sources?</li>
+      <li><span class="check">✓</span>Did I make my own judgment?</li>
+      <li><span class="check">✓</span>Did I use AI responsibly?</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>Remember</h3>
+    <p><strong>AI can assist your learning, but it should not replace your reasoning.</strong></p>
+    <p>Use AI to explore possibilities, ask questions, and improve understanding. Then pause, evaluate the response, and make your own informed decision.</p>
+    <div class="notice"><strong>For Psychology students:</strong> Be especially careful with personal, confidential, sensitive, or identifiable information. Do not enter private case details or other protected information into AI tools.</div>
+  </div>
+</div>
+</section>
 
-<section id="materials"><div class="wrap"><h2 class="title">Digital Learning Materials</h2><p class="lead">Quick materials students can use before, during, or after using AI.</p>
-<div class="grid">
-<div class="card"><div class="tag">Material 01</div><h3>AI Verification Guide</h3><ul><li>Identify the important claim.</li><li>Find a credible source.</li><li>Compare it with the AI response.</li><li>Check whether evidence supports the claim.</li></ul></div>
-<div class="card"><div class="tag">Material 02</div><h3>Prompt With Purpose</h3><ul><li>Know what you want to learn.</li><li>Ask clear questions.</li><li>Request explanations, not only answers.</li><li>Challenge the response with follow-up questions.</li></ul></div>
-<div class="card"><div class="tag">Material 03</div><h3>AI Red Flags</h3><ul><li>Unverifiable citations</li><li>Overconfident statements</li><li>Missing context</li><li>Claims without evidence</li></ul></div>
-<div class="card"><div class="tag">Material 04</div><h3>Academic Responsibility</h3><ul><li>Follow course and school policies.</li><li>Do not misrepresent AI-generated work where prohibited.</li><li>Protect private information.</li><li>Understand what you submit.</li></ul></div>
-</div></div></section>
+<section id="basics-content">
+<div class="container">
+<div class="section-title"><h2>Understanding AI in Psychology</h2><p>AI can support academic tasks when used as a learning aid and with appropriate human oversight.</p></div>
+<div class="info-grid">
+<div class="info-box"><h3>What is AI?</h3><p>Artificial Intelligence refers to computer systems that can perform tasks associated with human intelligence, such as generating text, recognizing patterns, organizing information, and responding to questions.</p></div>
+<div class="info-box"><h3>Where can AI help?</h3><ul><li>Explain difficult concepts in simpler terms</li><li>Brainstorm research ideas</li><li>Organize notes and ideas</li><li>Review writing and grammar</li><li>Generate practice questions</li><li>Offer alternative perspectives to examine</li></ul></div>
+</div>
+</div>
+</section>
 
-<section id="activities"><div class="wrap"><h2 class="title">Interactive Learning Activities</h2><p class="lead">Practice applying analysis, evaluation, inference, and problem-solving to AI-related situations.</p>
+<section id="effective-content" style="background:#f7fbff">
+<div class="container">
+<div class="section-title"><h2>Use AI Effectively</h2><p>The goal is to make AI support your learning—not do the thinking for you.</p></div>
+<div class="info-grid">
+<div class="info-box"><h3>Better prompting</h3><ul><li>State your goal clearly.</li><li>Give relevant context.</li><li>Ask for explanations, examples, or questions.</li><li>Request different viewpoints when useful.</li><li>Refine your prompt when the response is unclear.</li></ul></div>
+<div class="info-box"><h3>Good learning uses</h3><ul><li>“Explain this concept in simple terms.”</li><li>“Give me questions so I can test my understanding.”</li><li>“Point out weaknesses in my reasoning.”</li><li>“Give me possible perspectives to compare.”</li><li>“Help me improve this outline without writing the whole paper.”</li></ul></div>
+</div>
+</div>
+</section>
 
-<div class="activity"><div class="tag">Analysis</div><h3>Break Down the Claim</h3><p>An AI response says: <strong>“Students who frequently use AI always become less capable of independent thinking.”</strong></p><p><strong>What should you do first?</strong></p>
-<label class="choice"><input type="radio" name="a" value="0"> Accept the statement because it sounds convincing.</label><label class="choice"><input type="radio" name="a" value="1"> Identify the exact claim, assumptions, and evidence needed to support it.</label><label class="choice"><input type="radio" name="a" value="0"> Copy the statement into your assignment.</label><button onclick="check('a','1','ar')">Check Answer</button><div id="ar" class="result"></div></div>
+<section id="responsible-content">
+<div class="container">
+<div class="section-title"><h2>Use AI Responsibly</h2><p>Responsible AI use keeps people, learning, accuracy, and ethical judgment at the center.</p></div>
+<div class="cards">
+<article class="card"><div class="icon">🔍</div><h3>Verify</h3><p>AI can produce inaccurate or misleading information. Check important claims against credible sources.</p></article>
+<article class="card"><div class="icon">🔐</div><h3>Protect Privacy</h3><p>Do not share confidential case information, identifying details, passwords, or other sensitive personal data.</p></article>
+<article class="card"><div class="icon">✍️</div><h3>Be Honest</h3><p>Follow your school or instructor’s rules and clearly acknowledge AI assistance when required.</p></article>
+<article class="card"><div class="icon">⚖️</div><h3>Keep Human Judgment</h3><p>Do not treat an AI response as automatically correct. You remain responsible for what you accept and use.</p></article>
+<article class="card"><div class="icon">🌱</div><h3>Keep Learning</h3><p>Make room for independent reading, reasoning, discussion, writing, and problem-solving.</p></article>
+<article class="card"><div class="icon">🤝</div><h3>Use AI for Support</h3><p>Use AI to assist your process while keeping your own ideas, decisions, and academic responsibility.</p></article>
+</div>
+</div>
+</section>
 
-<div class="activity"><div class="tag">Evaluation</div><h3>Check the Source</h3><p>An AI answer gives you three academic-looking references. What is the strongest next step?</p>
-<label class="choice"><input type="radio" name="e" value="0"> Trust them because they look academic.</label><label class="choice"><input type="radio" name="e" value="1"> Find the original sources and check whether they actually support the claims.</label><label class="choice"><input type="radio" name="e" value="0"> Use them without reading them.</label><button onclick="check('e','1','er')">Check Answer</button><div id="er" class="result"></div></div>
+<section id="critical-content" style="background:#f7fbff">
+<div class="container">
+<div class="section-title"><h2>AI and Critical Thinking</h2><p>Critical thinking means actively examining information before accepting it.</p></div>
+<div class="info-grid">
+<div class="info-box"><h3>Practice analytical reasoning</h3><p>Break complex information into parts, identify connections, and ask whether the explanation makes sense.</p></div>
+<div class="info-box"><h3>Evaluate information</h3><p>Check evidence, source quality, assumptions, possible bias, and whether the AI response actually answers the question.</p></div>
+<div class="info-box"><h3>Strengthen problem-solving</h3><p>Try to develop your own possible solution first, then use AI to compare approaches or identify gaps.</p></div>
+<div class="info-box"><h3>Make your own judgment</h3><p>After considering the evidence and alternatives, decide what you believe is best supported and explain why.</p></div>
+</div>
+<div class="notice"><strong>Key idea:</strong> AI should be a thinking partner or learning aid—not the final decision-maker.</div>
+</div>
+</section>
 
-<div class="activity"><div class="tag">Inference</div><h3>Evidence or Assumption?</h3><p>A student observes that classmates use AI and concludes that AI caused differences in classroom performance. What should the student recognize?</p>
-<label class="choice"><input type="radio" name="i" value="1"> The observation alone does not establish causation.</label><label class="choice"><input type="radio" name="i" value="0"> The conclusion is automatically true.</label><label class="choice"><input type="radio" name="i" value="0"> No additional evidence is needed.</label><button onclick="check('i','1','ir')">Check Answer</button><div id="ir" class="result"></div></div>
+<section id="resources">
+<div class="container">
+<div class="section-title"><h2>Resources & Quick Reference</h2><p>Use these principles as a starting point for responsible AI use in education.</p></div>
+<div class="panel">
+<h3>Core principles</h3>
+<ul>
+<li><strong>Human agency:</strong> Keep human judgment and responsibility central.</li>
+<li><strong>Ethics:</strong> Consider fairness, privacy, safety, and academic integrity.</li>
+<li><strong>Critical judgment:</strong> Question and evaluate AI-generated information.</li>
+<li><strong>Meaningful use:</strong> Use AI when it genuinely supports the learning goal.</li>
+<li><strong>Continuous learning:</strong> AI tools change, so keep learning how to use them appropriately.</li>
+</ul>
+<p style="margin-bottom:0"><strong>Reference:</strong> UNESCO, <em>AI Competency Framework for Students</em> (2024) and <em>Guidance for Generative AI in Education and Research</em> (2023).</p>
+</div>
+</div>
+</section>
+</main>
 
-<div class="activity"><div class="tag">Problem-Solving</div><h3>Choose a Responsible Response</h3><p>You want AI to help you understand a Psychology assignment while keeping your final work your own.</p>
-<label class="choice"><input type="radio" name="p" value="0"> Ask AI to write everything and submit it.</label><label class="choice"><input type="radio" name="p" value="1"> Use AI for appropriate support, verify information, follow course rules, and produce your own final work.</label><label class="choice"><input type="radio" name="p" value="0"> Copy the AI response and change a few words.</label><button onclick="check('p','1','pr')">Check Answer</button><div id="pr" class="result"></div></div>
-</div></section>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div><h3>Think Before You Prompt</h3><p>A digital learning guide designed to support Psychology students in using AI effectively, responsibly, and critically.</p></div>
+<div><h3>Remember</h3><p><strong>Use AI, but stay in control.</strong><br>Think critically. Verify information. Protect privacy. Make your own judgment.</p></div>
+<div><h3>Quick Links</h3><ul><li><a href="#guide">Explore the Guide</a></li><li><a href="#five-step">5-Step Guide</a></li><li><a href="#checklist-content">Checklist</a></li><li><a href="#resources">Resources</a></li></ul></div>
+</div>
+<div class="footer-bottom">© 2026 Think Before You Prompt • Developed as an educational awareness output for Psychology students.</div>
+</div>
+</footer>
 
-<section><div class="wrap"><h2 class="title">Responsible AI Checklist</h2><p class="lead">A quick self-check before using AI-generated information for academic work.</p>
-<div class="card check">
-<label><input type="checkbox"> I know why I am using AI for this task.</label>
-<label><input type="checkbox"> I checked important information using credible sources.</label>
-<label><input type="checkbox"> I considered the reasoning and possible limitations.</label>
-<label><input type="checkbox"> I can explain the information in my own words.</label>
-<label><input type="checkbox"> I followed my instructor's AI-use and academic-integrity rules.</label>
-<label><input type="checkbox"> I used AI as support rather than a replacement for my thinking.</label>
-<div class="bar"><div class="fill" id="fill"></div></div><p id="pct"><strong>0% complete</strong></p>
-</div></div></section>
-
-<footer><div class="wrap"><strong>THINK BEFORE YOU PROMPT</strong><p class="small">Proposed digital learning-material output for SOP 5. Final content should be refined according to the actual findings of the study.</p></div></footer>
+<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><h2 id="modal-title">About</h2><div id="modal-body"></div></div></div>
 
 <script>
-function check(n,a,id){let x=document.querySelector('input[name="'+n+'"]:checked'),o=document.getElementById(id);if(!x){o.textContent="Please select an answer.";return}o.textContent=x.value===a?"✓ Correct. This applies the intended critical-thinking strategy.":"Not quite. Review the material and try the THINK framework again."}
-let boxes=document.querySelectorAll('.check input');boxes.forEach(b=>b.addEventListener('change',()=>{let n=[...boxes].filter(x=>x.checked).length,p=Math.round(n/boxes.length*100);document.getElementById('fill').style.width=p+'%';document.getElementById('pct').innerHTML='<strong>'+p+'% complete</strong>'}));
+function toggleMenu(){
+  const nav=document.querySelector('nav');
+  nav.style.display=nav.style.display==='flex'?'none':'flex';
+  if(nav.style.display==='flex'){nav.style.position='absolute';nav.style.top='66px';nav.style.left='0';nav.style.right='0';nav.style.padding='18px';nav.style.background='#fff';nav.style.flexDirection='column';nav.style.borderBottom='1px solid #dbe6f4';}
+}
+function openModal(type){
+  const modal=document.getElementById('modal');
+  const title=document.getElementById('modal-title');
+  const body=document.getElementById('modal-body');
+  title.textContent='About This Guide';
+  body.innerHTML='<p><strong>Think Before You Prompt</strong> is a digital learning guide created to promote effective and responsible AI use among Psychology students.</p><p>It encourages students to use AI as a learning aid while continuing to verify information, protect privacy, follow academic rules, and make independent judgments.</p><p>The guide is aligned with human-centred AI education principles that emphasize responsible use and critical judgment.</p>';
+  modal.classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
 </script>
 </body>
 </html>
